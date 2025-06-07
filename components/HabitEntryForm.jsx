@@ -37,14 +37,18 @@ export default function HabitEntryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Log Habit</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 max-w-md p-4 bg-secondary text-white rounded"
+    >
+      <h2 className="text-xl font-bold text-primary">Log Habit</h2>
       <div>
-        <label>
+        <label className="block mb-1">
           Habit:
           <select
             value={selectedHabit}
             onChange={(e) => setSelectedHabit(e.target.value)}
+            className="mt-1 block w-full rounded border border-primary p-2 text-black"
           >
             <option value="">Select...</option>
             {habits.map((h) => (
@@ -56,28 +60,35 @@ export default function HabitEntryForm() {
         </label>
       </div>
       <div>
-        <label>
+        <label className="block mb-1">
           Date:
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            className="mt-1 block w-full rounded border border-primary p-2 text-black"
           />
         </label>
       </div>
       <div>
-        <label>
+        <label className="block mb-1">
           Repetitions:
           <input
             type="number"
             min="0"
             value={repetitions}
             onChange={(e) => setRepetitions(e.target.value)}
+            className="mt-1 block w-full rounded border border-primary p-2 text-black"
           />
         </label>
       </div>
-      <button type="submit">Save</button>
-      {message && <p>{message}</p>}
+      <button
+        type="submit"
+        className="rounded bg-primary px-4 py-2 text-white"
+      >
+        Save
+      </button>
+      {message && <p className="mt-2">{message}</p>}
     </form>
   )
 }
